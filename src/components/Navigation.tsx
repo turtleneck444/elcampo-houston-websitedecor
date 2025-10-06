@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Award, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +48,7 @@ const Navigation = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/30 transition-all"></div>
               <img 
-                src={logo} 
+                src="/logohbp.png" 
                 alt="Houston Phone - Enterprise Mobile Solutions" 
                 className="h-20 w-auto relative z-10 transition-transform group-hover:scale-110 drop-shadow-2xl" 
               />
