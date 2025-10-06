@@ -115,33 +115,33 @@ const ChatBot = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 bg-accent hover:bg-accent/90 text-white rounded-full p-4 shadow-2xl transition-all hover:scale-110 animate-bounce"
+          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-accent hover:bg-accent/90 text-white rounded-full p-3 md:p-4 shadow-2xl transition-all hover:scale-110 animate-bounce touch-manipulation"
           aria-label="Open chat"
         >
-          <MessageCircle className="h-6 w-6" />
+          <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
         </button>
       )}
 
-      {/* Chat Window */}
+      {/* Chat Window - Mobile Responsive */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col border-2 border-accent/20 animate-fade-in">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-accent to-accent/90 text-white p-4 rounded-t-2xl flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <MessageCircle className="h-5 w-5" />
+        <div className="fixed inset-x-4 bottom-4 md:bottom-6 md:right-6 md:left-auto z-50 w-auto md:w-96 h-[calc(100vh-2rem)] md:h-[600px] max-h-[700px] bg-white rounded-2xl shadow-2xl flex flex-col border-2 border-accent/20 animate-fade-in">
+          {/* Header - Mobile Optimized */}
+          <div className="bg-gradient-to-r from-accent to-accent/90 text-white p-3 md:p-4 rounded-t-2xl flex items-center justify-between flex-shrink-0">
+            <div className="flex items-center gap-2 md:gap-3 min-w-0">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="h-4 w-4 md:h-5 md:w-5" />
               </div>
-              <div>
-                <h3 className="font-bold">Houston Phone Assistant</h3>
+              <div className="min-w-0">
+                <h3 className="font-bold text-sm md:text-base truncate">Houston Phone Assistant</h3>
                 <p className="text-xs opacity-90">Powered by AI</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="hover:bg-white/20 rounded-lg p-2 transition-colors"
+              className="hover:bg-white/20 rounded-lg p-2 transition-colors flex-shrink-0 touch-manipulation"
               aria-label="Close chat"
             >
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5 md:h-5 md:w-5" />
             </button>
           </div>
 
@@ -175,27 +175,27 @@ const ChatBot = () => {
             </div>
           </ScrollArea>
 
-          {/* Input */}
-          <div className="p-4 border-t border-gray-200">
+          {/* Input - Mobile Optimized */}
+          <div className="p-3 md:p-4 border-t border-gray-200 flex-shrink-0">
             <div className="flex gap-2">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your message..."
-                className="flex-1"
+                className="flex-1 text-sm md:text-base"
                 disabled={isLoading}
               />
               <Button
                 onClick={sendMessage}
                 disabled={isLoading || !input.trim()}
-                className="bg-accent hover:bg-accent/90"
+                className="bg-accent hover:bg-accent/90 touch-manipulation"
                 size="icon"
               >
                 <Send className="h-4 w-4" />
               </Button>
             </div>
-            <p className="text-xs text-gray-500 mt-2 text-center">
+            <p className="text-xs text-gray-500 mt-2 text-center leading-tight">
               Call us: (832) 991-6859 • Mon-Sat 10AM-7PM
             </p>
           </div>
