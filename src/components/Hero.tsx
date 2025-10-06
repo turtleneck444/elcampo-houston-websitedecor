@@ -45,10 +45,10 @@ const Hero = () => {
             </span>
             <span className="block mb-1 md:mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white">{t('hero.title2')}</span>
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-accent via-yellow-400 to-amber-500 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="text-white font-extrabold drop-shadow-2xl">
                 {t('hero.title3')}
               </span>
-              <div className="absolute bottom-0 left-0 right-0 h-1 md:h-1.5 bg-gradient-to-r from-accent/50 via-accent to-accent/50 rounded-full shadow-lg shadow-accent/50"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 md:h-1.5 bg-accent rounded-full shadow-lg shadow-accent/50"></div>
             </span>
           </h1>
           
@@ -60,15 +60,15 @@ const Hero = () => {
           {/* Trust Metrics - Mobile Optimized */}
           <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-10 md:mb-12 max-w-4xl w-full px-2">
             <div className="group cursor-default bg-white rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 border-2 border-border hover:border-accent/50 transition-all hover:shadow-xl">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-br from-accent to-amber-500 bg-clip-text text-transparent mb-1 md:mb-2 group-hover:scale-110 transition-transform">15K+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-1 md:mb-2 group-hover:scale-110 transition-transform">15K+</div>
               <div className="text-muted-foreground font-semibold text-[10px] sm:text-xs md:text-sm lg:text-base leading-tight">{t('hero.metric1')}</div>
             </div>
             <div className="group cursor-default bg-white rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 border-2 border-border hover:border-accent/50 transition-all hover:shadow-xl">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-br from-accent to-amber-500 bg-clip-text text-transparent mb-1 md:mb-2 group-hover:scale-110 transition-transform">99%</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-1 md:mb-2 group-hover:scale-110 transition-transform">99%</div>
               <div className="text-muted-foreground font-semibold text-[10px] sm:text-xs md:text-sm lg:text-base leading-tight">{t('hero.metric2')}</div>
             </div>
             <div className="group cursor-default bg-white rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 border-2 border-border hover:border-accent/50 transition-all hover:shadow-xl">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-br from-accent to-amber-500 bg-clip-text text-transparent mb-1 md:mb-2 group-hover:scale-110 transition-transform">24/7</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-1 md:mb-2 group-hover:scale-110 transition-transform">24/7</div>
               <div className="text-muted-foreground font-semibold text-[10px] sm:text-xs md:text-sm lg:text-base leading-tight">{t('hero.metric3')}</div>
             </div>
           </div>
@@ -78,7 +78,7 @@ const Hero = () => {
             <a href="tel:8329916859" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="w-full sm:w-auto text-base md:text-lg px-8 md:px-12 py-6 md:py-8 bg-accent hover:bg-amber-500 text-primary font-bold shadow-xl hover:shadow-2xl transition-all active:scale-95 md:hover:scale-105 md:hover:-translate-y-1 group touch-manipulation"
+                className="w-full sm:w-auto text-base md:text-lg px-8 md:px-12 py-6 md:py-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold shadow-xl hover:shadow-2xl transition-all active:scale-95 md:hover:scale-105 md:hover:-translate-y-1 group touch-manipulation"
               >
                 <Phone className="mr-2 md:mr-3 h-4 w-4 md:h-5 md:w-5 group-hover:rotate-12 transition-transform" />
                 <span className="whitespace-nowrap">(832) 991-6859</span>

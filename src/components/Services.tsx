@@ -55,12 +55,12 @@ const Services = () => {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/10 to-amber-500/10 px-6 py-3 rounded-full mb-6 border border-accent/20 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-accent/10 px-6 py-3 rounded-full mb-6 border border-accent/20 shadow-sm">
             <Sparkles className="h-4 w-4 text-accent animate-pulse" />
             <span className="text-accent font-bold text-sm tracking-wide">{t('services.badge')}</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
-            {t('services.title')} <span className="bg-gradient-to-r from-accent to-amber-500 bg-clip-text text-transparent">{t('services.titleAccent')}</span>
+            {t('services.title')} <span className="text-accent font-extrabold">{t('services.titleAccent')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             {t('services.subtitle')} <span className="font-semibold text-foreground">{t('services.subtitle2')}</span>{t('services.subtitle3')}
@@ -71,8 +71,8 @@ const Services = () => {
           {services.map((service, index) => (
             <Card key={index} className="border-2 hover:border-accent/50 transition-all hover:shadow-2xl group bg-card/50 backdrop-blur-sm">
               <CardHeader className="pb-4">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                  <service.icon className="h-7 w-7 text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                  <service.icon className="h-7 w-7 text-white" />
                 </div>
                 <CardTitle className="text-2xl font-bold mb-2">{service.title}</CardTitle>
               </CardHeader>
@@ -105,7 +105,7 @@ const Services = () => {
             <p className="text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto">
               {t('services.ctaText')}
             </p>
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-bold shadow-xl">
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-bold shadow-xl">
               <Phone className="mr-2 h-5 w-5" />
               {t('services.ctaButton')}
             </Button>

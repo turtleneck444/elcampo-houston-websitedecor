@@ -26,8 +26,8 @@ All colors MUST be HSL.
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 210 75% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -47,8 +47,8 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%), hsl(222 47% 18%));
-    --gradient-accent: linear-gradient(135deg, hsl(43 96% 56%), hsl(38 92% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 75% 35%), hsl(210 75% 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(210 75% 40%), hsl(210 75% 50%));
     --shadow-soft: 0 4px 6px -1px hsl(222 47% 11% / 0.05), 0 2px 4px -2px hsl(222 47% 11% / 0.05);
     --shadow-medium: 0 10px 15px -3px hsl(222 47% 11% / 0.08), 0 4px 6px -4px hsl(222 47% 11% / 0.08);
     --shadow-large: 0 20px 25px -5px hsl(222 47% 11% / 0.12), 0 8px 10px -6px hsl(222 47% 11% / 0.12);
@@ -175,7 +175,7 @@ All colors MUST be HSL.
 
   /* Focus styles for accessibility */
   *:focus-visible {
-    outline: 2px solid hsl(var(--accent));
+    outline: 2px solid hsl(210 75% 40%);
     outline-offset: 2px;
   }
 
@@ -198,7 +198,7 @@ All colors MUST be HSL.
 
     /* Optimize tap highlighting */
     * {
-      -webkit-tap-highlight-color: rgba(43, 96, 56, 0.1);
+      -webkit-tap-highlight-color: rgba(30, 77, 123, 0.1);
     }
   }
 
