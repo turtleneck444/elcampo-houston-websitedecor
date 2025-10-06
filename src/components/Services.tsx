@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Smartphone, Unlock, DollarSign, ShoppingBag, Wrench, Battery, ArrowRight, CheckCircle2, Phone } from "lucide-react";
+import { Smartphone, Unlock, DollarSign, ShoppingBag, Wrench, Battery, ArrowRight, CheckCircle2, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -43,17 +43,24 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-background to-secondary/30">
-      <div className="container mx-auto max-w-7xl">
+    <section className="py-24 px-4 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-4">
-            <span className="text-accent font-semibold text-sm">COMPREHENSIVE SOLUTIONS</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/10 to-amber-500/10 px-6 py-3 rounded-full mb-6 border border-accent/20 shadow-sm">
+            <Sparkles className="h-4 w-4 text-accent animate-pulse" />
+            <span className="text-accent font-bold text-sm tracking-wide">COMPREHENSIVE SOLUTIONS</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
-            Enterprise Service Portfolio
+          <h2 className="text-5xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
+            Enterprise Service <span className="bg-gradient-to-r from-accent to-amber-500 bg-clip-text text-transparent">Portfolio</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Industry-leading mobile device services backed by certified technicians, 
+            Industry-leading mobile device services backed by <span className="font-semibold text-foreground">certified technicians</span>, 
             premium components, and unwavering quality standards.
           </p>
         </div>

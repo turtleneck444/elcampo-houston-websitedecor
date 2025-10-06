@@ -19,30 +19,45 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-background/95 border-b border-border sticky top-0 z-50 backdrop-blur-lg shadow-sm">
+    <nav className="bg-gradient-to-r from-white via-slate-50 to-white border-b-2 border-accent/20 sticky top-0 z-50 backdrop-blur-xl shadow-premium">
       <div className="container mx-auto px-4">
-        {/* Top Bar */}
-        <div className="hidden md:flex items-center justify-between py-2 border-b border-border/50">
+        {/* Premium Top Bar */}
+        <div className="hidden md:flex items-center justify-between py-3 border-b border-accent/10 bg-gradient-to-r from-accent/5 via-transparent to-accent/5">
           <div className="flex items-center gap-6 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Award className="h-4 w-4 text-accent" />
-              <span className="font-semibold">Texas's Premier Mobile Solutions Provider</span>
+            <div className="flex items-center gap-2">
+              <Award className="h-5 w-5 text-accent animate-pulse" />
+              <span className="font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Texas's Premier Mobile Solutions Provider</span>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-sm">
-            <a href="tel:8329916859" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-              <Phone className="h-4 w-4 inline mr-1" />
+          <div className="flex items-center gap-6 text-sm">
+            <a href="tel:8329916859" className="flex items-center gap-2 text-foreground hover:text-accent transition-all font-bold group">
+              <div className="p-2 bg-accent/10 rounded-full group-hover:bg-accent/20 transition-colors">
+                <Phone className="h-4 w-4 text-accent" />
+              </div>
               (832) 991-6859
             </a>
-            <span className="text-muted-foreground">|</span>
-            <span className="text-muted-foreground">Mon-Sat: 10AM-7PM</span>
+            <div className="h-8 w-px bg-border"></div>
+            <span className="font-semibold text-muted-foreground">Mon-Sat: 10AM-7PM</span>
           </div>
         </div>
 
-        {/* Main Navigation */}
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo} alt="Houston Phone - Enterprise Mobile Solutions" className="h-14 w-auto transition-transform group-hover:scale-105" />
+        {/* Premium Main Navigation */}
+        <div className="flex items-center justify-between py-4">
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/30 transition-all"></div>
+              <img 
+                src={logo} 
+                alt="Houston Phone - Enterprise Mobile Solutions" 
+                className="h-20 w-auto relative z-10 transition-transform group-hover:scale-110 drop-shadow-2xl" 
+              />
+            </div>
+            <div className="hidden lg:block">
+              <div className="text-2xl font-extrabold bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent leading-tight">
+                HOUSTON PHONE
+              </div>
+              <div className="text-xs font-semibold text-accent tracking-wider">ENTERPRISE SOLUTIONS</div>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,15 +1,30 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Shield, Award, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Phone, Shield, Award, TrendingUp, ArrowRight, CheckCircle2, Sparkles, Zap, Star } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-secondary/30 to-white py-20 px-4 md:py-28">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
-        <div className="absolute top-40 right-10 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl"></div>
-        <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-20 px-4 md:py-32">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmYmJmMjQiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0xLjEwNS44OTUtMiAyLTJzMiAuODk1IDIgMi0uODk1IDItMiAyLTItLjg5NS0yLTJ6bTAgMTBjMC0xLjEwNS44OTUtMiAyLTJzMiAuODk1IDIgMi0uODk1IDItMiAyLTItLjg5NS0yLTJ6bS0xMCAxMGMwLTEuMTA1Ljg5NS0yIDItMnMyIC44OTUgMiAyLS44OTUgMi0yIDItMi0uODk1LTItMnptMCAwYzAtMS4xMDUuODk1LTIgMi0yczIgLjg5NSAyIDItLjg5NSAyLTIgMi0yLS44OTUtMi0yeiIvPjwvZz48L2c+PC9zdmc+')] opacity-40"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/10 via-transparent to-blue-600/10"></div>
+        <div className="absolute top-20 -left-20 w-96 h-96 bg-accent rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-40 -right-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-20 left-1/2 w-96 h-96 bg-accent rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
+
+      {/* Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-[10%] animate-float">
+          <Sparkles className="h-6 w-6 text-accent opacity-40" />
+        </div>
+        <div className="absolute top-40 right-[15%] animate-float animation-delay-2000">
+          <Star className="h-8 w-8 text-accent opacity-30" />
+        </div>
+        <div className="absolute bottom-40 left-[20%] animate-float animation-delay-4000">
+          <Zap className="h-7 w-7 text-blue-400 opacity-40" />
+        </div>
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -21,23 +36,23 @@ const Hero = () => {
           </div>
           
           {/* Headline - Mobile Optimized */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-foreground mb-6 md:mb-8 leading-[1.1] tracking-tight px-2">
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 md:mb-3 font-bold bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight px-2">
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 md:mb-3 font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-lg">
               HOUSTON PHONE
             </span>
-            <span className="block mb-1 md:mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Enterprise-Grade Mobile</span>
+            <span className="block mb-1 md:mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white">Enterprise-Grade Mobile</span>
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-accent via-accent to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent via-yellow-400 to-amber-500 bg-clip-text text-transparent drop-shadow-2xl">
                 Solutions & Services
               </span>
-              <div className="absolute bottom-0 left-0 right-0 h-1 md:h-1.5 bg-gradient-to-r from-accent/30 via-accent/60 to-accent/30 rounded-full"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 md:h-1.5 bg-gradient-to-r from-accent/50 via-accent to-accent/50 rounded-full shadow-lg shadow-accent/50"></div>
             </span>
           </h1>
           
           {/* Subheadline - Mobile Optimized */}
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-4xl leading-relaxed px-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100/90 mb-8 md:mb-12 max-w-4xl leading-relaxed px-4">
             Industry-leading mobile device management, repair, and telecommunications services. 
-            Trusted by <span className="font-bold text-foreground">thousands across Texas</span> with certified expertise and guaranteed results.
+            Trusted by <span className="font-bold text-white">thousands across Texas</span> with certified expertise and guaranteed results.
           </p>
           
           {/* Trust Metrics - Mobile Optimized */}
