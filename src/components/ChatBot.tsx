@@ -115,16 +115,16 @@ const ChatBot = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-accent hover:bg-accent/90 text-white rounded-full p-3 md:p-4 shadow-2xl transition-all hover:scale-110 animate-bounce touch-manipulation"
+          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] bg-accent hover:bg-accent/90 text-white rounded-full p-3 md:p-4 shadow-2xl transition-all hover:scale-110 animate-bounce touch-manipulation"
           aria-label="Open chat"
         >
           <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
         </button>
       )}
 
-      {/* Chat Window - Mobile Responsive with Header Spacing */}
+      {/* Chat Window - Mobile Responsive with Highest Z-Index */}
       {isOpen && (
-        <div className="fixed inset-x-4 top-20 bottom-4 md:top-auto md:bottom-6 md:right-6 md:left-auto z-50 w-auto md:w-96 h-auto md:h-[600px] max-h-[calc(100vh-6rem)] md:max-h-[700px] bg-white rounded-2xl shadow-2xl flex flex-col border-2 border-accent/20 animate-fade-in">
+        <div className="fixed inset-x-4 top-20 bottom-4 md:top-auto md:bottom-6 md:right-6 md:left-auto z-[9999] w-auto md:w-96 h-auto md:h-[600px] max-h-[calc(100vh-6rem)] md:max-h-[700px] bg-white rounded-2xl shadow-2xl flex flex-col border-2 border-accent/20 animate-fade-in">
           {/* Header - Mobile Optimized */}
           <div className="bg-gradient-to-r from-accent to-accent/90 text-white p-3 md:p-4 rounded-t-2xl flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-2 md:gap-3 min-w-0">
