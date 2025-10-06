@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Award } from "lucide-react";
+import { Menu, X, Phone, Award, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { language, toggleLanguage, t } = useLanguage();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -61,7 +63,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -72,12 +74,23 @@ const Navigation = () => {
                     : "text-foreground"
                 }`}
               >
-                {link.name}
+                {t(`nav.${link.name.toLowerCase()}`)}
               </Link>
             ))}
+            
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 rounded-lg transition-all border border-accent/30 hover:border-accent/50 group"
+              aria-label="Toggle language"
+            >
+              <Languages className="h-4 w-4 text-accent" />
+              <span className="text-sm font-bold text-accent">{language === 'en' ? 'ES' : 'EN'}</span>
+            </button>
+            
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105">
               <Phone className="mr-2 h-4 w-4" />
-              Contact Us
+              {t('nav.contactUs')}
             </Button>
           </div>
 

@@ -1,47 +1,50 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Smartphone, Unlock, DollarSign, ShoppingBag, Wrench, Battery, ArrowRight, CheckCircle2, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const services = [
-  {
-    icon: Wrench,
-    title: "Display Technology Services",
-    description: "Precision screen restoration using OEM-grade components. Advanced diagnostics and quality-assured replacements with manufacturer warranties.",
-    features: ["Same-day service", "90-day warranty", "OEM parts"],
-  },
-  {
-    icon: Battery,
-    title: "Power Management Solutions",
-    description: "Comprehensive battery and charging system diagnostics. Certified replacement services to optimize device performance and longevity.",
-    features: ["Battery health analysis", "Charging port repair", "Performance optimization"],
-  },
-  {
-    icon: Unlock,
-    title: "Carrier Network Solutions",
-    description: "Enterprise-level carrier unlocking services. Full compatibility with major telecommunications providers and international networks.",
-    features: ["All carriers supported", "Same-day processing", "Permanent unlocking"],
-  },
-  {
-    icon: DollarSign,
-    title: "Payment Processing Center",
-    description: "Streamlined bill payment services for all major carriers. Secure transaction processing with instant confirmation and receipt documentation.",
-    features: ["All carriers accepted", "Instant processing", "Digital receipts"],
-  },
-  {
-    icon: ShoppingBag,
-    title: "Premium Accessories",
-    description: "Curated selection of certified mobile accessories. Protection solutions, charging systems, and enhancement products from leading manufacturers.",
-    features: ["Top brands", "Quality guaranteed", "Expert guidance"],
-  },
-  {
-    icon: Smartphone,
-    title: "Comprehensive Device Repair",
-    description: "Full-spectrum repair services for all mobile device issues. Advanced troubleshooting with industry-leading success rates and turnaround times.",
-    features: ["Expert diagnostics", "Complex repairs", "Parts in stock"],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
+  const { t } = useLanguage();
+  
+  const services = [
+    {
+      icon: Wrench,
+      title: t('services.service1'),
+      description: t('services.service1desc'),
+      features: [t('services.feature1'), t('services.feature2'), t('services.feature3')],
+    },
+    {
+      icon: Battery,
+      title: t('services.service2'),
+      description: t('services.service2desc'),
+      features: [t('services.feature4'), t('services.feature5'), t('services.feature6')],
+    },
+    {
+      icon: Unlock,
+      title: t('services.service3'),
+      description: t('services.service3desc'),
+      features: [t('services.feature7'), t('services.feature8'), t('services.feature9')],
+    },
+    {
+      icon: DollarSign,
+      title: t('services.service4'),
+      description: t('services.service4desc'),
+      features: [t('services.feature10'), t('services.feature11'), t('services.feature12')],
+    },
+    {
+      icon: ShoppingBag,
+      title: t('services.service5'),
+      description: t('services.service5desc'),
+      features: [t('services.feature13'), t('services.feature14'), t('services.feature15')],
+    },
+    {
+      icon: Smartphone,
+      title: t('services.service6'),
+      description: t('services.service6desc'),
+      features: [t('services.feature16'), t('services.feature17'), t('services.feature18')],
+    },
+  ];
+
   return (
     <section className="py-24 px-4 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
       {/* Background Elements */}
@@ -54,14 +57,13 @@ const Services = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/10 to-amber-500/10 px-6 py-3 rounded-full mb-6 border border-accent/20 shadow-sm">
             <Sparkles className="h-4 w-4 text-accent animate-pulse" />
-            <span className="text-accent font-bold text-sm tracking-wide">COMPREHENSIVE SOLUTIONS</span>
+            <span className="text-accent font-bold text-sm tracking-wide">{t('services.badge')}</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
-            Enterprise Service <span className="bg-gradient-to-r from-accent to-amber-500 bg-clip-text text-transparent">Portfolio</span>
+            {t('services.title')} <span className="bg-gradient-to-r from-accent to-amber-500 bg-clip-text text-transparent">{t('services.titleAccent')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Industry-leading mobile device services backed by <span className="font-semibold text-foreground">certified technicians</span>, 
-            premium components, and unwavering quality standards.
+            {t('services.subtitle')} <span className="font-semibold text-foreground">{t('services.subtitle2')}</span>{t('services.subtitle3')}
           </p>
         </div>
         
@@ -87,7 +89,7 @@ const Services = () => {
                   ))}
                 </div>
                 <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-primary transition-colors">
-                  Learn More
+                  {t('services.learnMore')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </CardContent>
@@ -98,15 +100,14 @@ const Services = () => {
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-primary to-primary/90 rounded-2xl p-12 shadow-premium">
             <h3 className="text-3xl font-bold text-primary-foreground mb-4">
-              Can't Find What You Need?
+              {t('services.ctaTitle')}
             </h3>
             <p className="text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto">
-              Our expert team handles specialized requests and custom solutions. 
-              Contact us to discuss your specific requirements.
+              {t('services.ctaText')}
             </p>
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-bold shadow-xl">
               <Phone className="mr-2 h-5 w-5" />
-              Speak With a Specialist
+              {t('services.ctaButton')}
             </Button>
           </div>
         </div>
