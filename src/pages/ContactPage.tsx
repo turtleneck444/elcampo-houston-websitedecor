@@ -31,11 +31,15 @@ const ContactPage = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary to-accent py-20 px-4 text-primary-foreground">
+        <section className="bg-gradient-to-b from-white via-secondary/30 to-white py-20 px-4">
           <div className="container mx-auto max-w-6xl text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto">
-              We're here to help with all your phone repair needs
+            <div className="mb-6 inline-flex items-center gap-2 bg-accent/10 px-6 py-3 rounded-full border border-accent/30">
+              <Phone className="h-4 w-4 text-accent" />
+              <span className="text-accent font-bold text-sm tracking-wide">GET IN TOUCH</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">Contact Our Expert Team</h1>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              Professional support for all your mobile device needs across three Texas locations
             </p>
           </div>
         </section>

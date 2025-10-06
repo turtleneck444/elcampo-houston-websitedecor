@@ -56,11 +56,15 @@ const ServicesPage = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary to-accent py-20 px-4 text-primary-foreground">
+        <section className="bg-gradient-to-b from-white via-secondary/30 to-white py-20 px-4">
           <div className="container mx-auto max-w-6xl text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto">
-              Comprehensive phone repair and services for all makes and models
+            <div className="mb-6 inline-flex items-center gap-2 bg-accent/10 px-6 py-3 rounded-full border border-accent/30">
+              <Smartphone className="h-4 w-4 text-accent" />
+              <span className="text-accent font-bold text-sm tracking-wide">COMPREHENSIVE SOLUTIONS</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">Enterprise Service Portfolio</h1>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              Professional mobile device services backed by certified technicians and premium quality standards
             </p>
           </div>
         </section>
@@ -99,16 +103,20 @@ const ServicesPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 bg-muted/30">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Visit any of our three locations or give us a call
-            </p>
-            <Button size="lg" className="shadow-lg">
-              <Phone className="mr-2 h-5 w-5" />
-              Call (832) 991-6859
-            </Button>
+        <section className="py-20 px-4 bg-gradient-to-b from-secondary/30 to-white">
+          <div className="container mx-auto max-w-5xl">
+            <div className="bg-gradient-to-r from-primary to-primary/90 rounded-3xl p-12 shadow-premium text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">Ready to Experience Excellence?</h2>
+              <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+                Visit any of our three strategic locations or contact our expert team today
+              </p>
+              <a href="tel:8329916859">
+                <Button size="lg" className="bg-accent hover:bg-amber-500 text-primary font-bold shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                  <Phone className="mr-2 h-5 w-5" />
+                  (832) 991-6859
+                </Button>
+              </a>
+            </div>
           </div>
         </section>
       </main>
