@@ -68,33 +68,68 @@ const Services = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card key={index} className="border-2 hover:border-accent/50 transition-all hover:shadow-2xl group bg-card/50 backdrop-blur-sm">
-              <CardHeader className="pb-4">
-                <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                  <service.icon className="h-7 w-7 text-white" />
-                </div>
-                <CardTitle className="text-2xl font-bold mb-2">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-6 leading-relaxed">
-                  {service.description}
-                </CardDescription>
-                <div className="space-y-2 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-primary transition-colors">
-                  {t('services.learnMore')}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          {services.map((service, index) => {
+            // Different animations for each service
+            const animations = [
+              'animate-phone-3d',
+              'animate-levitate', 
+              'hover-flip-3d',
+              'animate-screen-repair',
+              'animate-battery-pulse',
+              'animate-tool'
+            ];
+            
+            return (
+              <Card key={index} className={`border-2 hover:border-accent/50 transition-all hover:shadow-2xl group bg-card/50 backdrop-blur-sm ${index === 2 ? 'hover-flip-3d' : ''} relative overflow-hidden`}>
+                {/* Animated Background Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Sparkle Effects on Hover */}
+                {[...Array(3)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-2 h-2 bg-accent rounded-full opacity-0 group-hover:animate-sparkle"
+                    style={{
+                      top: `${20 + i * 30}%`,
+                      left: `${30 + i * 20}%`,
+                      animationDelay: `${i * 0.2}s`
+                    }}
+                  />
+                ))}
+                
+                <CardHeader className="pb-4 relative z-10">
+                  <div className={`w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-6 transition-all shadow-lg ${
+                    index === 0 ? 'group-hover:animate-phone-3d' :
+                    index === 1 ? 'group-hover:animate-battery-pulse' :
+                    index === 2 ? 'group-hover:animate-screen-repair' :
+                    index === 3 ? 'group-hover:animate-levitate' :
+                    index === 4 ? 'group-hover:animate-tool' :
+                    'group-hover:animate-sparkle'
+                  }`}>
+                    <service.icon className="h-7 w-7 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold mb-2">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="relative z-10">
+                  <CardDescription className="text-base mb-6 leading-relaxed">
+                    {service.description}
+                  </CardDescription>
+                  <div className="space-y-2 mb-6">
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm transform transition-all group-hover:translate-x-2" style={{ transitionDelay: `${idx * 100}ms` }}>
+                        <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0 group-hover:animate-spin" style={{ animationDuration: '2s' }} />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-white transition-all group-hover:scale-105 group-hover:shadow-xl">
+                    {t('services.learnMore')}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         <div className="mt-16 text-center">

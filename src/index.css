@@ -163,6 +163,139 @@ All colors MUST be HSL.
     animation: fade-in 0.5s ease-out;
   }
 
+  /* 3D Phone Rotation Animation */
+  @keyframes phone-rotate-3d {
+    0% {
+      transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    }
+    25% {
+      transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
+    }
+    50% {
+      transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    }
+    75% {
+      transform: perspective(1000px) rotateY(-10deg) rotateX(-5deg);
+    }
+    100% {
+      transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    }
+  }
+
+  .animate-phone-3d {
+    animation: phone-rotate-3d 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  /* Screen Repair Animation */
+  @keyframes screen-repair {
+    0%, 100% {
+      transform: scale(1);
+      filter: brightness(1);
+    }
+    50% {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
+  }
+
+  .animate-screen-repair {
+    animation: screen-repair 2s ease-in-out infinite;
+  }
+
+  /* Battery Pulse Animation */
+  @keyframes battery-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0);
+    }
+  }
+
+  .animate-battery-pulse {
+    animation: battery-pulse 2s ease-in-out infinite;
+  }
+
+  /* Circuit Board Animation */
+  @keyframes circuit-flow {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-circuit {
+    stroke-dasharray: 1000;
+    animation: circuit-flow 3s linear infinite;
+  }
+
+  /* Tool Animation */
+  @keyframes tool-work {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-5px) rotate(-5deg);
+    }
+    75% {
+      transform: translateY(-5px) rotate(5deg);
+    }
+  }
+
+  .animate-tool {
+    animation: tool-work 1.5s ease-in-out infinite;
+  }
+
+  /* Sparkle Repair Effect */
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  /* 3D Card Flip */
+  @keyframes card-flip-3d {
+    0% {
+      transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+      transform: perspective(1000px) rotateY(360deg);
+    }
+  }
+
+  .hover-flip-3d:hover {
+    animation: card-flip-3d 0.6s ease-in-out;
+  }
+
+  /* Levitate Effect */
+  @keyframes levitate {
+    0%, 100% {
+      transform: translateY(0) translateZ(0);
+    }
+    50% {
+      transform: translateY(-15px) translateZ(50px);
+    }
+  }
+
+  .animate-levitate {
+    animation: levitate 4s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
   /* Premium shadows */
   .shadow-premium {
     box-shadow: var(--shadow-premium);
