@@ -1,0 +1,208 @@
+import { useState, useRef, useEffect } from "react";
+import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+interface Message {
+  role: "user" | "assistant";
+  content: string;
+}
+
+const ChatBot = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      role: "assistant",
+      content: "Hello! I'm your Houston Phone assistant. How can I help you today with mobile device repairs, unlocking, or bill payment services?",
+    },
+  ]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const sendMessage = async () => {
+    if (!input.trim() || isLoading) return;
+
+    const userMessage: Message = { role: "user", content: input };
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [
+            {
+              role: "system",
+              content: `You are a helpful customer service assistant for Houston Phone, a professional mobile device repair and service center with locations in El Campo, Houston West, and Houston South. We offer:
+              - Screen repairs and replacements
+              - Battery replacements and charging port repairs
+              - Carrier unlocking for all carriers
+              - Bill payment services for all major carriers
+              - Premium mobile accessories
+              - Comprehensive device repairs
+              
+              We have:
+              - Certified factory-trained technicians
+              - 90-day warranty on all repairs
+              - OEM parts
+              - Same-day service available
+              - Flexible payment plans
+              
+              Phone: (832) 991-6859
+              Hours: Monday-Saturday, 10AM-7PM
+              
+              Be friendly, professional, and helpful. Keep responses concise but informative.`,
+            },
+            ...messages,
+            userMessage,
+          ],
+          max_tokens: 250,
+          temperature: 0.7,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to get response");
+      }
+
+      const data = await response.json();
+      const assistantMessage: Message = {
+        role: "assistant",
+        content: data.choices[0].message.content,
+      };
+
+      setMessages((prev) => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error("Error:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "I apologize, but I'm having trouble connecting right now. Please call us at (832) 991-6859 or visit one of our locations for immediate assistance!",
+        },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
+
+  return (
+    <>
+      {/* Chat Button */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-6 right-6 z-50 bg-accent hover:bg-accent/90 text-white rounded-full p-4 shadow-2xl transition-all hover:scale-110 animate-bounce"
+          aria-label="Open chat"
+        >
+          <MessageCircle className="h-6 w-6" />
+        </button>
+      )}
+
+      {/* Chat Window */}
+      {isOpen && (
+        <div className="fixed bottom-6 right-6 z-50 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col border-2 border-accent/20 animate-fade-in">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-accent to-accent/90 text-white p-4 rounded-t-2xl flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                <MessageCircle className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-bold">Houston Phone Assistant</h3>
+                <p className="text-xs opacity-90">Powered by AI</p>
+              </div>
+            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="hover:bg-white/20 rounded-lg p-2 transition-colors"
+              aria-label="Close chat"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+
+          {/* Messages */}
+          <ScrollArea className="flex-1 p-4">
+            <div className="space-y-4">
+              {messages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                >
+                  <div
+                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${
+                      message.role === "user"
+                        ? "bg-accent text-white"
+                        : "bg-gray-100 text-gray-900"
+                    }`}
+                  >
+                    <p className="text-sm leading-relaxed">{message.content}</p>
+                  </div>
+                </div>
+              ))}
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 rounded-2xl px-4 py-3">
+                    <Loader2 className="h-5 w-5 text-accent animate-spin" />
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+          </ScrollArea>
+
+          {/* Input */}
+          <div className="p-4 border-t border-gray-200">
+            <div className="flex gap-2">
+              <Input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Type your message..."
+                className="flex-1"
+                disabled={isLoading}
+              />
+              <Button
+                onClick={sendMessage}
+                disabled={isLoading || !input.trim()}
+                className="bg-accent hover:bg-accent/90"
+                size="icon"
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+            <p className="text-xs text-gray-500 mt-2 text-center">
+              Call us: (832) 991-6859 • Mon-Sat 10AM-7PM
+            </p>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default ChatBot;
